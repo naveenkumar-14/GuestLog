@@ -30,13 +30,14 @@
     
 
      <div class="table-container">
-        <h2 style="text-align:center;">Recent Guest Entries</h2>
+        <h2 style="text-align:center;">Recent Visitors</h2>
         <table>
             <tr>
-                <th>ID</th>
+                
                 <th>Name</th>
                 <th>Contact</th>
                 <th>Purpose</th>
+                <th>Flat</th>
                 <th>In Time</th>
                 <th>Out Time</th>
             </tr>
