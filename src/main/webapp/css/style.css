@@ -52,23 +52,34 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-/* Dashboard links */
-.card {
-    background: white;
-    padding: 15px;
-    margin: 10px auto;
-    width: 80%;
-    border-radius: 8px;
-    box-shadow: 0 0 5px gray;
-    text-align: center;
+/* DFashboard*/
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Moves to next row if space is not enough */
+    justify-content: center; /* Centers buttons horizontally */
+    gap: 20px; /* Space between buttons */
+    padding: 20px;
 }
-.card a {
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    background-color: #f7f7f7;
+    border-left: 5px solid green;
+    border-radius: 10px;
     text-decoration: none;
-    color: #1a73e8;
+    color: #0056d2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    min-width: 200px;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
-.card a:hover {
-    text-decoration: underline;
+
+.button:hover {
+    background-color: #e2e2e2;
 }
+
 
 /* Tables */
 table {

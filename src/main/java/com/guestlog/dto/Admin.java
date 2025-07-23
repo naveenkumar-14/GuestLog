@@ -1,13 +1,12 @@
 package com.guestlog.dto;
 
 public class Admin {
-	 private int adminId;
+	    private int adminId;
 	    private String fullName;
 	    private String username;
 	    private String password;
 	    private String email;
 	    private String role; // "Security", "Admin"
-	    private boolean isActive;
 		public int getAdminId() {
 			return adminId;
 		}
@@ -44,12 +43,7 @@ public class Admin {
 		public void setRole(String role) {
 			this.role = role;
 		}
-		public boolean isActive() {
-			return isActive;
-		}
-		public void setActive(boolean isActive) {
-			this.isActive = isActive;
-		}
+		
 	    
 	    
 	    
