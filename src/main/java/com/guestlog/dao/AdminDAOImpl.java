@@ -25,11 +25,11 @@ public class AdminDAOImpl implements AdminDAO{
 	        ps.setString(4, a.getEmail());
 	        ps.setString(5, a.getRole());
 
-	        if (ps.executeUpdate() > 0) { // ✅ Correct usage
+	        if (ps.executeUpdate() > 0) {
 	            return true;
 	        }
 	    } catch (SQLException e) {
-	        e.printStackTrace(); // You can log this better if needed
+	        e.printStackTrace(); 
 	    }
 	    return false;
 	}

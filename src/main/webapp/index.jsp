@@ -18,15 +18,16 @@
     <div class="dashboard-grid">
         <div class="card">
             <h2>Total Flats</h2>
-            <p>120</p>
+            <p>${flatCount}</p>
+
         </div>
         <div class="card">
             <h2>Available for Rent</h2>
-            <p>10</p>
+            <p>${rentCount}</p>
         </div>
         <div class="card">
             <h2>Available for Sale</h2>
-            <p>5</p>
+            <p>${saleCount }</p>
         </div>
         <div class="card">
             <h2>Book a Visit</h2>
