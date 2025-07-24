@@ -11,7 +11,7 @@
         <h1>Welcome to GuestLog</h1>
         <div class="auth-buttons">
             <a href="login.jsp" class="btn">Login</a>
-            <a href="signup.jsp" class="btn">Signup</a>
+            <a href="residentSignup.jsp" class="btn">Signup</a>
         </div>
     </div>
 
