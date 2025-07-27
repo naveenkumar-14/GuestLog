@@ -60,7 +60,7 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 	@Override
 	public ArrayList<Admin> getAdmins() {
-		String query="select * from admin";
+		String query="select * from admin where admin_id!=1";
 		ArrayList<Admin> al=new ArrayList<Admin>();
 		try {
 			PreparedStatement ps=con.prepareStatement(query);

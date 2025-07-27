@@ -2,7 +2,9 @@ package com.guestlog.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.guestlog.connection.Connector;
 import com.guestlog.dto.Resident;
@@ -34,6 +36,34 @@ public class ResidentDAOImpl implements ResidentDAO{
 			e.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public ArrayList<Resident> viewResidents() {
+		
+		String query="select * from residents";
+		ArrayList<Resident> al=new ArrayList<Resident>();
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				Resident r=new Resident();
+				r.setResidentId(rs.getInt(1));
+				r.setFullName(rs.getString(2));
+				r.setFlatNumber(rs.getString(3));
+				r.setMobileNumber(rs.getString(4));//mobile
+				r.setEmail(rs.getString(5));//email
+				r.setGender(rs.getString(6));//gender
+				r.setResidentType(rs.getString(7));//resident type
+				r.setMoveInDate(rs.getString(8));//movein date
+				r.setActive(rs.getBoolean(9));//is active
+				al.add(r);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return al;
 	}
 
 }

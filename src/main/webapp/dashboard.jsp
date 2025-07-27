@@ -1,3 +1,5 @@
+<%@page import="com.guestlog.dao.ResidentDAOImpl"%>
+<%@page import="com.guestlog.dao.ResidentDAO"%>
 <%@ page language="java" %>
 <%@page import="com.guestlog.dto.Admin" %>
 <!DOCTYPE html>
@@ -9,6 +11,7 @@
 <body>
 	<% Admin a=(Admin)session.getAttribute("activeAdmin"); %>
 	<%if(a != null ){ %>
+	<%ResidentDAO rdao=new ResidentDAOImpl(); %>
 	<div class="top-bar">
     <form action="logout" method="post">
         <input type="submit" value="Logout" class="logout-button" />
