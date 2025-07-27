@@ -7,15 +7,25 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
+	<% Admin a=(Admin)session.getAttribute("activeAdmin"); %>
+	<%if(a != null ){ %>
+	<div class="top-bar">
+    <form action="logout" method="post">
+        <input type="submit" value="Logout" class="logout-button" />
+    </form>
+	</div>
+	
     <h1>Dashboard</h1>
     <%if(request.getAttribute("success")!=null){ %>
     <h3 align="center"><%=request.getAttribute("success") %></h3>
     <%} %>
+    
+    <h3 align="center"><%=a.getFullName() %></h3>
     <div class="button-container">
     
-    <% Admin a=(Admin)session.getAttribute("activeAdmin"); %>
-    <% if(a != null && a.getAdminId() == 1) { %>
+    
+    
+    <% if(a.getAdminId() == 1) { %>
     <a href="manageAdmins.jsp" class="button">Manage Admins</a>
 	<% } %>
 
@@ -24,6 +34,7 @@
     <a href="manageParking.jsp" class="button">Manage Parking</a>
     <a href="addServiceEntry.jsp" class="button">Add Service Entry</a>
     <a href="viewServices.jsp" class="button">View Services</a>
+    <a href="viewResidents.jsp" class="button">View Residents</a>
     
 	</div>
 
@@ -44,5 +55,10 @@
             
         </table>
         </div>
+        <%}else{ %>
+        	<%request.setAttribute("error", "Login again"); %>
+        	<%RequestDispatcher rd=request.getRequestDispatcher("login.jsp");%>
+        	<%rd.forward(request, response); %>
+        <%} %>
 </body>
 </html>

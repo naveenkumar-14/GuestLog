@@ -11,6 +11,8 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+<% Admin a=(Admin)session.getAttribute("activeAdmin"); %>
+	<%if(a != null ){ %>
 <button type="button" onclick="window.location.href='dashboard.jsp'" class="back-btn">
 		  Back to Dashboard
 		</button>
@@ -79,5 +81,10 @@
             <button type="submit">Add Admin</button>
         </form>
     </div>
+    <%}else{ %>
+        	<%request.setAttribute("error", "Login again"); %>
+        	<%RequestDispatcher rd=request.getRequestDispatcher("login.jsp");%>
+        	<%rd.forward(request, response); %>
+        <%} %>
 </body>
 </html>
