@@ -40,7 +40,7 @@ public class ResidentDAOImpl implements ResidentDAO{
 
 	@Override
 	public ArrayList<Resident> viewResidents() {
-		
+
 		String query="select * from residents";
 		ArrayList<Resident> al=new ArrayList<Resident>();
 		try {
