@@ -35,7 +35,7 @@
     <a href="GuestEntry.jsp" class="button">Add Guest Entry</a>
     <a href="viewGuestRecords.jsp" class="button">View Guest Records</a>
     <a href="manageParking.jsp" class="button">Manage Parking</a>
-    <a href="addServiceEntry.jsp" class="button">Add Service Entry</a>
+    <a href="ServiceEntry.jsp" class="button">Add Service Entry</a>
     <a href="viewServices.jsp" class="button">View Services</a>
     <a href="viewResidents.jsp" class="button">View Residents</a>
     
