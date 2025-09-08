@@ -17,7 +17,7 @@ public class ResidentDAOImpl implements ResidentDAO{
 
 	@Override
 	public boolean insertResident(Resident res) {
-		String query ="insert into residents values(?,?,?,?,?,?,?,?)";
+		String query ="insert into residents values(Null,?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement ps=con.prepareStatement(query);
 			ps.setString(1, res.getFullName());
@@ -64,6 +64,73 @@ public class ResidentDAOImpl implements ResidentDAO{
 			e.printStackTrace();
 		}
 		return al;
+	}
+
+	@Override
+	public Resident getResidentById(int id) {
+
+		Resident r=null;
+		String query="select * from residents where resident_id=?";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.setInt(1, id);
+			ResultSet rs=ps.executeQuery();
+			if(rs.next()) {
+				r=new Resident();
+				r.setResidentId(rs.getInt(1));
+				r.setFullName(rs.getString(2));
+				r.setFlatNumber(rs.getString(3));
+				r.setMobileNumber(rs.getString(4));
+				r.setEmail(rs.getString(5));
+				r.setGender(rs.getString(6));
+				r.setResidentType(rs.getString(7));
+				r.setMoveInDate(rs.getString(8));
+				r.setActive(rs.getBoolean(9));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return r;
+	}
+	
+	
+
+	@Override
+	public boolean updateResident(Resident r) {
+		 try {
+		        String query = "UPDATE residents SET fullName=?, flatNumber=?, mobileNumber=?, email=?, gender=?, residentType=?, moveInDate=?, isActive=? WHERE resident_id=?";
+		        PreparedStatement ps = con.prepareStatement(query);
+		        ps.setString(1, r.getFullName());
+		        ps.setString(2, r.getFlatNumber());
+		        ps.setString(3, r.getMobileNumber());
+		        ps.setString(4, r.getEmail());
+		        ps.setString(5, r.getGender());
+		        ps.setString(6, r.getResidentType());
+		        ps.setString(7, r.getMoveInDate());
+		        ps.setBoolean(8, r.isActive());
+		        ps.setInt(9, r.getResidentId());
+		        return ps.executeUpdate() > 0;
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    return false;
+	}
+
+	@Override
+	public boolean deleteResidentById(int id) {
+		String query="Delete from residents where resident_id=?";
+		try {
+			PreparedStatement ps=con.prepareStatement(query);
+			ps.setInt(1, id);
+			return ps.executeUpdate()>0;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	
+		
 	}
 
 }
